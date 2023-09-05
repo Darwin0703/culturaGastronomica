@@ -1,0 +1,30 @@
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+<div class="row">
+  <div class="col-8">
+    <p class="h1" *ngIf="!loading">CULTURA MEDITERRÁNEA</p>
+  </div>
+  <div class="col-2" *ngIf="!loading">
+    <a class="float-right puntero" (click)="previousPage()">
+      <i class="fas fa-angle-double-left fa-3x alert-link"></i>
+    </a>
+  </div>
+
+  <div *ngIf="!loading" class="card-columns m-5 animated fadeIn" >
+    <div *ngFor="let cultura of culturas; let i = index" class="card puntero">
+      <div class="card-body">
+        <h5 class="card-title">{{ cultura.region }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Características de la Cultura
+        </h6>
+        <p class="card-text">
+          <span>Cultura Gastrónomica: {{ cultura.cultura }}</span><br />
+          <span>Platos Principales: {{ cultura.platosPrincipales }}</span><br />
+          <span>Descripción: {{ cultura.descripcion }} </span>
+        </p>
+        <a class="badge badge-info" (click)="vewCulture(cultura.cultura)"
+          >Ver mas...</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
